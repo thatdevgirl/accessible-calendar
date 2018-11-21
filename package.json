@@ -1,0 +1,17 @@
+{
+  "name": "accessible-calendar",
+  "version": "1.0.0",
+  "description": "HTML/CSS only accessible calendar",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joni Halabi",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest"
+  }
+}

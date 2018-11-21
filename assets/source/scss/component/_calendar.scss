@@ -1,0 +1,52 @@
+/* ***
+ * Accessible calendar styles.
+ */
+
+.calendar {
+  width: 100%;
+
+  caption {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  th, td {
+    border: 1px solid $white;
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  th {
+    background: $table-header;
+    color: $white;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  td {
+    background: $table-cell;
+
+    @media screen and (max-width: 600px) {
+      display: block;
+
+      &.empty {
+        display: none;
+      }
+
+      .day {
+        display: none;
+      }
+    }
+
+    .full-day {
+      display: none;
+
+      @media screen and (max-width: 600px) {
+        display: block;
+      }
+    }
+  }
+}
