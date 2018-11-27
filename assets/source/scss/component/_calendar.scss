@@ -15,38 +15,53 @@
     border: 1px solid $white;
     padding: 0.5rem;
     text-align: left;
+
+    @media screen and ( min-width: $lg-screen ) {
+      width: calc( 100% / 7 );
+    }
   }
 
   th {
     background: $table-header;
     color: $white;
 
-    @media screen and (max-width: 600px) {
+    @media screen and ( max-width: $lg-screen ) {
       display: none;
     }
   }
 
   td {
-    background: $table-cell;
+    background: $table-cell-small;
 
-    @media screen and (max-width: 600px) {
+    @media screen and ( max-width: $lg-screen ) {
       display: block;
+    }
 
-      &.empty {
-        display: none;
-      }
+    @media screen and ( min-width: $lg-screen ) {
+      background: $table-cell-large;
+      height: 5rem;
+    }
 
-      .day {
+    // Empty day cells.
+    &.empty {
+      background: $table-cell-empty;
+
+      @media screen and ( max-width: $lg-screen ) {
         display: none;
       }
     }
 
-    .full-day {
-      display: none;
-
-      @media screen and (max-width: 600px) {
-        display: block;
+    // Date display for large screens.
+    .day span {
+      @media screen and ( min-width: $lg-screen ) {
+        display: none;
       }
+    }
+
+    // List of day's events.
+    .events {
+      font-size: 0.9rem;
+      margin: 1rem 0 0;
     }
   }
 }
