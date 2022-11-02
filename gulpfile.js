@@ -1,21 +1,15 @@
-const gulp = require('gulp'),
-      sass = require('gulp-sass'),
-      clean = require('gulp-clean-css'),
+const gulp   = require('gulp'),
+      sass   = require('gulp-dart-sass'),
       rename = require('gulp-rename');
 
 // CSS build task.
-gulp.task('css', function() {
+function cssTask( done ) {
 	return gulp.src('assets/source/scss/styles.scss')
-		.pipe(sass().on('error', sass.logError))
-    .pipe(clean())
+    .pipe( sass( { outputStyle: 'compressed' } ) )
     .pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('assets/build/css'));
-});
-
-// Watcher task.
-gulp.task('watch', function() {
-	gulp.watch('assets/source/scss/**/*.scss', ['css']);
-});
+};
 
 // Default task.
-gulp.task('default', ['watch', 'css']);
+gulp.task( 'css', cssTask );
+gulp.task( 'default', cssTask );
